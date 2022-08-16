@@ -1,7 +1,7 @@
 // add라는 파일의 test를 하는 파일이라고 명시하는것 ->  파일이름.test
 
 // 모듈 import
-const add = require("../add.js");
+const add = require("./add.js");
 
 // 테스트 코드
 test("add 1, + 2 to equal 3", () => {
