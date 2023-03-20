@@ -1,5 +1,4 @@
 const Calculator = require("../calculator");
-const calculator = require("../calculator");
 
 // 관련 있는 테스트를 묶을 때 : describe
 describe("calculator", () => {
@@ -28,6 +27,12 @@ describe("calculator", () => {
     cal.set(1);
     cal.add(2);
     expect(cal.value).toBe(3);
+  });
+  it("add should throw an error if value is greater than 100", () => {
+    // 에러가 발생할 테스트 코드는 expect안에 callback함수로 전달해주어야함.
+    expect(() => {
+      cal.add(101);
+    }).toThrow("Value can not be greater than 100");
   });
   it("subtract", () => {
     cal.set(9);
