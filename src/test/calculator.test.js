@@ -1,4 +1,4 @@
-const Calculator = require("../calculator");
+const Calculator = require("../calculator.js");
 
 // 관련 있는 테스트를 묶을 때 : describe
 describe("calculator", () => {
