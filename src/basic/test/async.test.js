@@ -14,7 +14,7 @@ describe("Async", () => {
     expect(product).toEqual({ item: "Milk", price: 200 });
   });
 
-  it("async - resolves", async () => {
+  it("async - rejects", async () => {
     return expect(fetchProduct("error")).rejects.toBe("network error");
   });
 });
