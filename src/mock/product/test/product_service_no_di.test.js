@@ -1,4 +1,4 @@
-const ProductService = require("../product_service_no_di.js");
+const ProductService = require("../product_service_no_di");
 const ProductClient = require("../product_client.js");
 
 jest.mock("../product_client");

@@ -1,6 +1,6 @@
-const ProductClient = require('./product_client');
+const ProductClient = require("./product_client");
 class ProductService {
-  constructor() {
+  constructor(productClient) {
     this.productClient = new ProductClient();
   }
 
