@@ -10,6 +10,7 @@ describe("ProductService - Stub", () => {
 
   it("should filter out only available items", async () => {
     const items = await productService.fetchAvailableItems();
+
     expect(items).toEqual([{ item: "🥛", available: true }]);
     expect(items.length).toBe(1);
   });
