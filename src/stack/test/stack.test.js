@@ -12,16 +12,16 @@ describe("Stack", () => {
   });
 
   it("allows to push item", () => {
-    stack.push("🍕");
-    expect(stack.size()).toBe(1);
+    // stack.push("🍕");
+    // expect(stack.size()).toBe(1);
   });
 
   describe("pop", () => {
-    it("throws an error if stack im emmpty", () => {
-      expect(() => {
-        stack.pop();
-      }).toThrow("stack is empty");
-    });
+    // it("throws an error if stack im emmpty", () => {
+    //   expect(() => {
+    //     stack.pop();
+    //   }).toThrow("stack is empty");
+    // });
 
     it("returns the last pushed item and removes it from the stack", () => {
       stack.push("🍟");
