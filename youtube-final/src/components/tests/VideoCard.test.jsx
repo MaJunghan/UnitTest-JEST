@@ -3,30 +3,15 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Route, useLocation, Routes } from 'react-router-dom';
 import { formatAgo } from '../../util/date';
 import VideoCard from '../VideoCard';
+import { fakeVideo as video } from '../../tests/videos';
+import { withRouter } from '../../tests/utils';
 
 describe('VideoCard', () => {
-  const video = {
-    id: 1,
-    snippet: {
-      title: 'title',
-      channelId: '1',
-      channelTitle: 'channelTitle',
-      publishedAt: new Date(),
-      thumbnails: {
-        medium: {
-          url: 'http://image/',
-        },
-      },
-    },
-  };
-
   const { title, channelTitle, publishedAt, thumbnails } = video.snippet;
 
   it('renders video item', () => {
     render(
-      <MemoryRouter>
-        <VideoCard video={video} />
-      </MemoryRouter>
+      withRouter(<Route path='/' element={<VideoCard video={video} />} />)
     );
 
     const image = screen.getByRole('img');
@@ -39,18 +24,19 @@ describe('VideoCard', () => {
 
   it('navigates to detailed video page with video state when clicked', () => {
     function LocationStateDispay() {
+      //useLocation : 라우터에 있는 state를 보여준다.
       return <pre>{JSON.stringify(useLocation().state)}</pre>;
     }
     render(
-      <MemoryRouter>
-        <Routes>
+      withRouter(
+        <>
           <Route path='/' element={<VideoCard video={video} />} />
           <Route
             path={`/videos/watch/${video.id}`}
             element={<LocationStateDispay />}
           />
-        </Routes>
-      </MemoryRouter>
+        </>
+      )
     );
 
     const card = screen.getByRole('listitem');
